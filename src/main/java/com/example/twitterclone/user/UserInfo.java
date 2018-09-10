@@ -1,10 +1,12 @@
 package com.example.twitterclone.user;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @JsonSerialize
-@Data
+@Setter
+@Getter
 class UserInfo {
     private String name;
     private String password;
