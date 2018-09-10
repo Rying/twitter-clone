@@ -26,8 +26,9 @@ repositories {
 
 dependencies {
 	compile('org.springframework.data:spring-data-redis:2.0.9.RELEASE')
-	compile('org.springframework.boot:spring-boot-starter-webflux')
+	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('redis.clients:jedis')
+	compile('org.projectlombok:lombok:1.18.0')
 	compileOnly('org.projectlombok:lombok')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile('io.projectreactor:reactor-test')
