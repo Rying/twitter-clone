@@ -27,6 +27,8 @@ repositories {
 dependencies {
 	compile('org.springframework.data:spring-data-redis:2.0.9.RELEASE')
 	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.security:spring-security-web')
+	compile('org.springframework.security:spring-security-config')
 	compile('redis.clients:jedis')
 	compile('org.projectlombok:lombok:1.18.0')
 	compileOnly('org.projectlombok:lombok')
