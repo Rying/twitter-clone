@@ -15,7 +15,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/api/login")
+    @PostMapping("/login")
     public UserInfo login(HttpServletRequest request) {
         String name = SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString();
         return userService.getUserInfo(name);

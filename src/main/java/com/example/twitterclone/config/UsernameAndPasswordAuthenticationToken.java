@@ -6,6 +6,10 @@ public class UsernameAndPasswordAuthenticationToken extends AbstractAuthenticati
     private String password;
     private String name;
 
+    public UsernameAndPasswordAuthenticationToken() {
+        super(null);
+    }
+
     public UsernameAndPasswordAuthenticationToken(String name) {
         super(null);
         this.name = name;
