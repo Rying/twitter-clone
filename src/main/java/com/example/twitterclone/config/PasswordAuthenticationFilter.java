@@ -1,6 +1,10 @@
 package com.example.twitterclone.config;
 
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.exceptions.JWTCreationException;
 import com.example.twitterclone.exception.AuthenticationFailedException;
+import com.example.twitterclone.exception.TechnicException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AbstractAuthenticationToken;
@@ -37,7 +41,20 @@ public class PasswordAuthenticationFilter extends UsernamePasswordAuthentication
 
     @Override
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException, ServletException {
-        response.addHeader("Authorization", "abcdefg");
+        response.addHeader("Authorization", signAToken());
+    }
+
+    private String signAToken() {
+        String token;
+        try {
+            Algorithm algorithm = Algorithm.HMAC256("secret");
+            token = JWT.create()
+                    .withIssuer("auth0")
+                    .sign(algorithm);
+        } catch (JWTCreationException exception){
+            throw new TechnicException("Invalid signing configuration");
+        }
+        return token;
     }
 
     private AbstractAuthenticationToken buildAuthentication(HttpServletRequest request) throws IOException {

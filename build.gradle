@@ -31,6 +31,7 @@ dependencies {
 	compile('org.springframework.security:spring-security-config')
 	compile('redis.clients:jedis')
 	compile('org.projectlombok:lombok:1.18.0')
+	compile('com.auth0:java-jwt:3.4.0')
 	compileOnly('org.projectlombok:lombok')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
